@@ -1,6 +1,7 @@
 package com.groupdocs.ui.common;
 
 import com.groupdocs.ui.common.config.GlobalConfiguration;
+import com.groupdocs.ui.common.exception.TotalGroupDocsExceptionMapper;
 import com.groupdocs.ui.common.health.TemplateHealthCheck;
 import com.groupdocs.ui.comparison.resources.ComparisonResources;
 import io.dropwizard.Application;
@@ -53,6 +54,9 @@ public class MainService extends Application<GlobalConfiguration> {
 
         // Initiate resources (web pages)
         environment.jersey().register(new ComparisonResources(globalConfiguration));
+
+        // Add custom exception mapper
+        environment.jersey().register(new TotalGroupDocsExceptionMapper());
 
         // Add dummy health check to get rid of console warnings
         // TODO: implement health check
