@@ -6,7 +6,7 @@
 
     <groupId>com.groupdocs.ui</groupId>
     <artifactId>comparison-dropwizard</artifactId>
-    <version>1.4.0</version>
+    <version>1.5.0</version>
     <packaging>jar</packaging>
 
     <name>GroupDocs.Comparison Dropwizard</name>
@@ -65,7 +65,7 @@
         <dependency>
             <groupId>com.groupdocs</groupId>
             <artifactId>groupdocs-comparison</artifactId>
-            <version>18.6.2</version>
+            <version>18.6.3</version>
             <type>jar</type>
         </dependency>
         <dependency>
