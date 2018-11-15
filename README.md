@@ -1,6 +1,6 @@
 # GroupDocs.Comparison-for-Java-Dropwizard Example
 New GroupDocs.Comparison for Java Dropwizard UI Example
-###### version 1.5.0
+###### version 1.6.0
 
 
 ## System Requirements
