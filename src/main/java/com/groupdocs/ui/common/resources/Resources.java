@@ -18,6 +18,7 @@ import java.net.InetAddress;
 import java.net.URL;
 import java.net.UnknownHostException;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
 import java.time.Instant;
 import java.time.ZoneId;
@@ -78,7 +79,7 @@ public abstract class Resources {
             pathname = String.format("%s%s%s", documentStoragePath, File.separator, fileName);
             File file = new File(pathname);
             // check rewrite mode
-            if(rewrite) {
+            if (rewrite) {
                 // save file with rewrite if exists
                 Files.copy(uploadedInputStream, file.toPath(), StandardCopyOption.REPLACE_EXISTING);
             } else {
@@ -87,7 +88,9 @@ public abstract class Resources {
                     file = getFreeFileName(documentStoragePath, fileName);
                 }
                 // save file with out rewriting
-                Files.copy(uploadedInputStream, file.toPath());
+                Path path = file.toPath();
+                Files.copy(uploadedInputStream, path);
+                pathname = path.toString();
             }
         } catch(Exception ex) {
             throw new TotalGroupDocsException(ex.getMessage(), ex);
@@ -175,7 +178,7 @@ public abstract class Resources {
             for (int i = 0; i < listOfFiles.length; i++) {
                 int number = i + 1;
                 String newFileName = FilenameUtils.removeExtension(fileName) + "-Copy(" + number + ")." + FilenameUtils.getExtension(fileName);
-                file = new File(directory + "/" + newFileName);
+                file = new File(directory + File.separator + newFileName);
                 if(file.exists()) {
                     continue;
                 } else {
