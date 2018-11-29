@@ -2,6 +2,8 @@
 New GroupDocs.Comparison for Java Dropwizard UI Example
 ###### version 1.7.0
 
+[![Build Status](https://travis-ci.org/groupdocs-comparison/GroupDocs.Comparison-for-Java-Dropwizard.svg?branch=master)](https://travis-ci.org/groupdocs-comparison/GroupDocs.Comparison-for-Java-Dropwizard)
+[![Maintainability](https://api.codeclimate.com/v1/badges/bd15712ebdd04405b1ea/maintainability)](https://codeclimate.com/github/groupdocs-comparison/GroupDocs.Comparison-for-Java-Dropwizard/maintainability)
 
 ## System Requirements
 - Java 8 (JDK 1.8)
