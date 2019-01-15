@@ -1,14 +1,27 @@
 package com.groupdocs.ui.common.entity.web;
 
 /**
- * DocumentDescriptionEntity
+ * PageDescriptionEntity
  *
  * @author Aspose Pty Ltd
  */
-public class DocumentDescriptionEntity {
+public class PageDescriptionEntity {
+    /**
+     * Page data
+     */
+    private String data;
+    private int angle;
     private double width;
     private double height;
     private int number;
+
+    public int getAngle() {
+        return angle;
+    }
+
+    public void setAngle(int angle) {
+        this.angle = angle;
+    }
 
     public double getWidth() {
         return width;
@@ -32,5 +45,13 @@ public class DocumentDescriptionEntity {
 
     public void setNumber(int number) {
         this.number = number;
+    }
+
+    public String getData() {
+        return data;
+    }
+
+    public void setData(String data) {
+        this.data = data;
     }
 }
