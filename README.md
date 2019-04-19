@@ -53,7 +53,7 @@ Download [source code](https://github.com/groupdocs-comparison/GroupDocs.Compari
 ```bash
 git clone https://github.com/groupdocs-comparison/GroupDocs.Comparison-for-Java-Dropwizard
 cd GroupDocs.Comparison-for-Java-Dropwizard
-mvn clean spring-boot:run
+mvn clean compile exec:java
 ## Open http://localhost:8080/comparison/ in your favorite browser.
 ```
 
@@ -67,7 +67,7 @@ Download [latest release](https://github.com/groupdocs-comparison/GroupDocs.Comp
 curl -J -L -o release.tar.gz https://github.com/groupdocs-comparison/GroupDocs.Comparison-for-Java-Dropwizard/releases/download/1.8.8/release.tar.gz
 tar -xvzf release.tar.gz
 cd release
-java -jar comparison-spring-1.8.8.jar configuration.yaml
+java -jar comparison-1.8.6.jar configuration.yaml
 ## Open http://localhost:8080/comparison/ in your favorite browser.
 ```
 
