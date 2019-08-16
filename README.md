@@ -1,7 +1,7 @@
 ![GroupDocs.Comparison](https://raw.githubusercontent.com/groupdocs-comparison/groupdocs-comparison.github.io/master/resources/image/banner.png "GroupDocs.Comparison")
 # GroupDocs.Comparison for Java Dropwizard Example
 New GroupDocs.Comparison for Java Dropwizard UI Example
-###### version 1.8.11
+###### version 1.8.12
 
 [![Build Status](https://travis-ci.org/groupdocs-comparison/GroupDocs.Comparison-for-Java-Dropwizard.svg?branch=master)](https://travis-ci.org/groupdocs-comparison/GroupDocs.Comparison-for-Java-Dropwizard)
 [![Maintainability](https://api.codeclimate.com/v1/badges/bd15712ebdd04405b1ea/maintainability)](https://codeclimate.com/github/groupdocs-comparison/GroupDocs.Comparison-for-Java-Dropwizard/maintainability)
@@ -74,7 +74,7 @@ Download [latest release](https://github.com/groupdocs-comparison/GroupDocs.Comp
 **Note**: This method is **recommended** for running this sample behind firewall.
 
 ```bash
-curl -J -L -o release.tar.gz https://github.com/groupdocs-comparison/GroupDocs.Comparison-for-Java-Dropwizard/releases/download/1.8.11/release.tar.gz
+curl -J -L -o release.tar.gz https://github.com/groupdocs-comparison/GroupDocs.Comparison-for-Java-Dropwizard/releases/download/1.8.12/release.tar.gz
 tar -xvzf release.tar.gz
 cd release
 java -jar comparison-1.8.6.jar configuration.yaml
