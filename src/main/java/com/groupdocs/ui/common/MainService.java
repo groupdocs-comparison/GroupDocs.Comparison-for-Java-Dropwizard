@@ -7,7 +7,9 @@ import com.groupdocs.ui.common.health.TemplateHealthCheck;
 import com.groupdocs.ui.comparison.resources.ComparisonResources;
 import io.dropwizard.Application;
 import io.dropwizard.assets.AssetsBundle;
+import io.dropwizard.configuration.EnvironmentVariableSubstitutor;
 import io.dropwizard.configuration.ResourceConfigurationSourceProvider;
+import io.dropwizard.configuration.SubstitutingSourceProvider;
 import io.dropwizard.forms.MultiPartBundle;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
@@ -17,6 +19,7 @@ import org.eclipse.jetty.servlets.CrossOriginFilter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javax.imageio.ImageIO;
 import javax.servlet.DispatcherType;
 import javax.servlet.FilterRegistration;
 import java.io.File;
@@ -31,6 +34,10 @@ import java.util.HashSet;
  */
 
 public class MainService extends Application<GlobalConfiguration> {
+    static {
+        ImageIO.scanForPlugins();
+    }
+
     private static final Logger logger = LoggerFactory.getLogger(MainService.class);
 
     private static final String SERVER_COMMAND = "server";
@@ -41,11 +48,11 @@ public class MainService extends Application<GlobalConfiguration> {
 
     private boolean defaultConfiguration;
 
-    public MainService(){
+    public MainService() {
         super();
         this.defaultConfiguration = false;
     }
-    
+
     public MainService(boolean defaultConfiguration) {
         super();
         this.defaultConfiguration = defaultConfiguration;
@@ -68,9 +75,17 @@ public class MainService extends Application<GlobalConfiguration> {
     @Override
     public void initialize(Bootstrap<GlobalConfiguration> bootstrap) {
         if (defaultConfiguration) {
-            bootstrap.setConfigurationSourceProvider(new ResourceConfigurationSourceProvider());
+            bootstrap.setConfigurationSourceProvider(new SubstitutingSourceProvider(
+                            new ResourceConfigurationSourceProvider(),
+                            new EnvironmentVariableSubstitutor(false)
+                    )
+            );
         } else {
-            bootstrap.setConfigurationSourceProvider(new MergedConfigurationSourceProvider(DEFAULT_CONFIGURATION_FILE));
+            bootstrap.setConfigurationSourceProvider(new SubstitutingSourceProvider(
+                            new MergedConfigurationSourceProvider(DEFAULT_CONFIGURATION_FILE),
+                            new EnvironmentVariableSubstitutor(false)
+                    )
+            );
         }
         // add assets bundle in order to get resources from assets directory
         bootstrap.addBundle(new AssetsBundle());
